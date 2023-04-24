@@ -1,0 +1,42 @@
+<%= form_with(model: purchase) do |form| %>
+  <% if purchase.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(purchase.errors.count, "error") %> prohibited this purchase from being saved:</h2>
+
+      <ul>
+        <% purchase.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :listing_id, style: "display: block" %>
+    <%= form.text_field :listing_id %>
+  </div>
+
+  <div>
+    <%= form.label :buyer_id, style: "display: block" %>
+    <%= form.text_field :buyer_id %>
+  </div>
+
+  <div>
+    <%= form.label :purchase_date, style: "display: block" %>
+    <%= form.date_field :purchase_date %>
+  </div>
+
+  <div>
+    <%= form.label :shipping_address, style: "display: block" %>
+    <%= form.text_area :shipping_address %>
+  </div>
+
+  <div>
+    <%= form.label :total_price, style: "display: block" %>
+    <%= form.text_field :total_price %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
