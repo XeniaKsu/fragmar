@@ -2,13 +2,13 @@
 
 <h1>Listings</h1>
 
-<div id="listings">
-  <% @listings.each do |listing| %>
-    <%= render listing %>
-    <p>
-      <%= link_to "Show this listing", listing %>
-    </p>
-  <% end %>
-</div>
+<% @listings.each do |listing| %>
+  <div class="listing">
+    <h2><%= listing.perfume.name %> by <%= listing.perfume.brand %></h2>
+    <p><%= listing.description %></p>
+    <p><strong>Condition:</strong> <%= listing.condition %></p>
+    <p><strong>Price:</strong> <%= number_to_currency(listing.price) %></p>
+  </div>
+<% end %>
 
 <%= link_to "New listing", new_listing_path %>

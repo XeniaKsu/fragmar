@@ -1,16 +1,16 @@
 class ListingsController < ApplicationController
   before_action :set_listing, only: %i[ show edit update destroy ]
 
-  # GET /listings or /listings.json
+
   def index
-    @listings = Listing.all
+    @listings = Listing.includes(:perfume).all
   end
 
-  # GET /listings/1 or /listings/1.json
+
   def show
   end
 
-  # GET /listings/new
+
   def new
     @listing = Listing.new
   end
